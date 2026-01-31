@@ -1,0 +1,61 @@
+READ ME FILE
+
+This repository contains the codes and input data for the article
+"Explainable deep-learning detection of microplastic fibers via polarization-resolved holographic microscopy"
+available on arxiv: https://arxiv.org/pdf/2601.15769
+
+
+
+Structure:
+- Data_preprocesing.ipynb:	load input data, split input data to train and validation data, normalization of data, save train and validation data
+- Other_machine_learning_models.ipynb:	load train and validation data, classification without feature selection, classification with feature selection (mRMR)
+- Train_DNN.ipynb:	load train and validation data, design of deep neural network, iterative training network, save best models
+- Evaluation_model_confusion_matrix.ipynb:	load train and validation data, load best model, evaluation confusion matrix, precision, recall and f1-score for validation data and whole dataset.
+- SHAP.ipynb:	load train and validation data, calculate SHAP FI values, create SHAP FI plots
+
+data:
+- best_model_v2_#.keras:	28 best models
+- feat_mat.mat:	input data
+- x_train_Znorm.csv, x_val_Znorm.csv, y_train.npy, y_val.npy: split and normalization data for train of DNN, Other_machine_learning_models respectively
+- scaler_Ztransform.save: scaler used for normalization
+- shap_array.npy:	calculate SHAP FI values
+- confusion_matrix_total.pdf, confusion_matrix_validation.pdf, plot_shap_ind_summ.pdf, plot_shap_summ_classes.pdf: pictures with results
+
+piprequest:
+
+- Data_preprocesing.ipynb:
+joblib : 1.5.3
+keras  : 3.13.1
+numpy  : 2.3.5
+pandas : 2.3.3
+scipy  : 1.17.0
+sklearn: 1.8.0
+
+- Other_machine_learning_models.ipynb:
+matplotlib: 3.10.8
+mrmr      : 0.2.8
+numpy     : 2.3.5
+pandas    : 2.3.3
+sklearn   : 1.8.0
+tensorflow: 2.20.0
+
+- Train_DNN.ipynb:
+keras : 3.13.1
+numpy : 2.3.5
+pandas: 2.3.3
+
+- Evaluation_model_confusion_matrix.ipynb:
+keras     : 3.13.1
+matplotlib: 3.10.8
+numpy     : 2.3.5
+pandas    : 2.3.3
+seaborn   : 0.13.2
+sklearn   : 1.8.0
+tabulate  : 0.9.0
+tensorflow: 2.20.0
+
+- SHAP.ipynb:
+keras : 3.12.0
+numpy : 1.26.4
+pandas: 2.3.3
+shap  : 0.49.1
